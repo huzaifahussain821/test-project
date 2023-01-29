@@ -240,7 +240,8 @@ class _LoginScreenState extends State<LoginScreen> {
             if (widget.userType == 0) {
               AppNavigation.navigateTo(context, AppRouteName.SIGNUP_SCREEN);
             } else if (widget.userType == 1) {
-              AppDialogs.showToast(message: "Working in Process");
+              AppNavigation.navigateTo(
+                  context, AppRouteName.TEACHER_SIGN_UP_SCREEN_ROUTE);
             } else if (widget.userType == 2) {
               AppNavigation.navigateTo(
                   context, AppRouteName.INSTITITE_SIGN_UP_SCREEN_ROUTE);

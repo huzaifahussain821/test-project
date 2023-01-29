@@ -2,18 +2,16 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
+// import 'package:image_cropper/image_cropper.dart';
+// import 'package:image_picker/image_picker.dart';
 
 import '../Utils/app_colors.dart';
 import '../Utils/app_strings.dart';
 import 'app_dialogs.dart';
 
-
-
 class ImageGalleryClass {
-  ImagePicker picker = ImagePicker();
-  XFile? getFilePath;
+  // ImagePicker picker = ImagePicker();
+  // XFile? getFilePath;
   File? imageFile;
 
   //Select Image Start
@@ -96,54 +94,54 @@ class ImageGalleryClass {
   }
 
   Future<String?> getCameraImage() async {
-    try {
-      getFilePath =
-          await picker.pickImage(source: ImageSource.camera, imageQuality: 70);
-      if (getFilePath != null) {
-        return getFilePath!.path;
-      }
-    } on PlatformException catch (e) {
-      AppDialogs.showToast(
-          message: e.message ?? AppStrings.SOMETHING_WENT_WRONG_ERROR);
-    }
+    // try {
+    //   getFilePath =
+    //       await picker.pickImage(source: ImageSource.camera, imageQuality: 70);
+    //   if (getFilePath != null) {
+    //     return getFilePath!.path;
+    //   }
+    // } on PlatformException catch (e) {
+    //   // AppDialogs.showToast(
+    //   //     message: e.message ?? AppStrings.SOMETHING_WENT_WRONG_ERROR);
+    // }
 
     return null;
   }
 
   Future<String?> getGalleryImage() async {
-    try {
-      getFilePath =
-          await picker.pickImage(source: ImageSource.gallery, imageQuality: 80);
-      if (getFilePath != null) {
-        return getFilePath!.path;
-      }
-    } on PlatformException catch (e) {
-      AppDialogs.showToast(
-          message: e.message ?? AppStrings.SOMETHING_WENT_WRONG_ERROR);
-    }
+    // try {
+    //   getFilePath =
+    //       await picker.pickImage(source: ImageSource.gallery, imageQuality: 80);
+    //   if (getFilePath != null) {
+    //     return getFilePath!.path;
+    //   }
+    // } on PlatformException catch (e) {
+    //   // AppDialogs.showToast(
+    //   //     message: e.message ?? AppStrings.SOMETHING_WENT_WRONG_ERROR);
+    // }
     return null;
   }
 
   Future<File?> cropImage({String? imageFilePath}) async {
-    imageFile = await ImageCropper().cropImage(
-      sourcePath: imageFilePath!,
-      aspectRatioPresets: [
-        CropAspectRatioPreset.square,
-        CropAspectRatioPreset.ratio3x2,
-        CropAspectRatioPreset.original,
-        CropAspectRatioPreset.ratio4x3,
-        CropAspectRatioPreset.ratio16x9
-      ],
-      androidUiSettings: AndroidUiSettings(
-          toolbarTitle: AppStrings.APP_TITLE_TEXT,
-          toolbarColor: AppColors.BACKGROUND_COLOR.withOpacity(0.9),
-          toolbarWidgetColor: AppColors.WHITE_COLOR,
-          initAspectRatio: CropAspectRatioPreset.original,
-          lockAspectRatio: false),
-      // iosUiSettings: IOSUiSettings(
-      //   minimumAspectRatio: 1.0,
-      // )
-    );
+    // imageFile = await ImageCropper().cropImage(
+    //   sourcePath: imageFilePath!,
+    //   aspectRatioPresets: [
+    //     CropAspectRatioPreset.square,
+    //     CropAspectRatioPreset.ratio3x2,
+    //     CropAspectRatioPreset.original,
+    //     CropAspectRatioPreset.ratio4x3,
+    //     CropAspectRatioPreset.ratio16x9
+    //   ],
+    //   androidUiSettings: AndroidUiSettings(
+    //       toolbarTitle: AppStrings.APP_TITLE_TEXT,
+    //       toolbarColor: AppColors.BACKGROUND_COLOR.withOpacity(0.9),
+    //       toolbarWidgetColor: AppColors.WHITE_COLOR,
+    //       initAspectRatio: CropAspectRatioPreset.original,
+    //       lockAspectRatio: false),
+    //   // iosUiSettings: IOSUiSettings(
+    //   //   minimumAspectRatio: 1.0,
+    //   // )
+    // );
 
     return imageFile;
   }
